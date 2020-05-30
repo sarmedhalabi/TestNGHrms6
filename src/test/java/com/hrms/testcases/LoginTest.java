@@ -1,52 +1,49 @@
 package com.hrms.testcases;
 
-import java.util.List;
-
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
+import org.testng.Assert;
+import org.testng.annotations.Test;
 
 import com.hrms.utils.CommonMethods;
 import com.hrms.utils.ConfigsReader;
 
 public class LoginTest extends CommonMethods {
 	
+	@Test(groups="smoke")
 	
-	public static void main(String[] args) throws InterruptedException {
-		/*
- 		 * User should be able to login to the application with valid credentials
- 		 */
+ 	public void validAdminLogin() {
+ 		// LoginPageElements login = new LoginPageElements();
+ 		sendText(login.username, ConfigsReader.getProperty("username"));
+ 		sendText(login.password, ConfigsReader.getProperty("password"));
+ 		click(login.loginBtn);
 
- 		//open browser and navigate to url
- 		setUp();
-
- 		//sending username
- 		WebElement username=driver.findElement(By.cssSelector("input#email"));
- 		
- 		sendText(username, ConfigsReader.getProperty("username"));
-
- 		//sending password
- 		WebElement password=driver.findElement(By.xpath("//input[@type='password'][@id='pass']"));
- 		sendText(password, ConfigsReader.getProperty("password"));
- 		WebElement firstName= driver.findElement(By.cssSelector("input[name='firstname']"));
- 		sendText(firstName,"John");
- 		WebElement lastName=driver.findElement(By.cssSelector("input[name='lastname']"));
- 		sendText(lastName,"Smith");
- 		List<WebElement> gender= driver.findElements(By.cssSelector("input[name='sex']"));
- 		ClickRadioOrCheckBox(gender,"2");
- 		Thread.sleep(2000);
-
- 		//click on login
-
-
- 		//close browser
- 		//tearDown();
-
+ 		// DashboardPageElements dashboard = new DashboardPageElements();
+ 		String expectedUser = "Welcome Admin";
+ 		String actualUser = dashboard.welcome.getText();
+ 		Assert.assertEquals(actualUser, expectedUser, "Admin is NOT Logged in");
+ 		Assert.assertTrue(actualUser.contains(ConfigsReader.getProperty("username")));
  	}
-		
-		
-		
-		
-		
-	}
+
+ 	@Test(groups="regression")
+ 	public void invalidPasswordLogin() {
+ 		// LoginPageElements login = new LoginPageElements();
+ 		sendText(login.username, ConfigsReader.getProperty("username"));
+ 		sendText(login.password, "uiuguig");
+ 		click(login.loginBtn);
+
+ 		String expected = "Invalid credential";
+ 		Assert.assertEquals(login.errorMsg.getText(), expected, "Error message text is not matched");
+ 	}
+
+ 	@Test(groups="regression")
+ 	public void emptyUsernameLogin() {
+ 		// LoginPageElements login = new LoginPageElements();
+ 		sendText(login.password, ConfigsReader.getProperty("password"));
+ 		click(login.loginBtn);
+
+ 		String expected = "Username cannot be empty";
+
+ 		Assert.assertEquals(login.errorMsg.getText(), expected, "Error message text is not matched");
+ 	}
 
 
+}

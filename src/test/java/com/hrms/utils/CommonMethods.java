@@ -2,6 +2,8 @@ package com.hrms.utils;
 
 import java.io.File;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.Set;
 
@@ -21,7 +23,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import com.hrms.testbase.PageInitializer;
 
 public class CommonMethods extends PageInitializer {
-	
+
 	/**
 	 * Methods that clear and send keys
 	 * 
@@ -239,7 +241,6 @@ public class CommonMethods extends PageInitializer {
 		return js;
 	}
 
-	
 	public static void jsClick(WebElement element) {
 		getJSObject().executeScript("arguments[0].click();", element);
 	}
@@ -265,21 +266,31 @@ public class CommonMethods extends PageInitializer {
 	public static void scrollUp(int pixel) {
 		getJSObject().executeScript("window.scrollBy(0,-" + pixel + ")");
 	}
-	
+
 	/**
 	 * This method will take a screenshot
+	 * 
 	 * @param fileName
 	 */
 
-	public static void TakesScreenshot(String fileName) {
+	public static String TakesScreenshot(String filename) {
 		TakesScreenshot ts = (TakesScreenshot) driver;
 		File screen = ts.getScreenshotAs(OutputType.FILE);
+		String destinationFile = Constants.SCREENSHOT_FILEPATH + filename +getTimeStamp()+ ".png";
+
 		try {
-			FileUtils.copyFile(screen, new File("screenshots/HRMS/"+fileName+".png"));
+			FileUtils.copyFile(screen, new File(destinationFile));
 		} catch (IOException e) {
 
 			e.printStackTrace();
 		}
+		return destinationFile;
+	}
+
+	public static String getTimeStamp() {
+		Date date = new Date();
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy_MM_dd_HH_mm_ss");
+		return sdf.format(date.getTime());
 
 	}
 

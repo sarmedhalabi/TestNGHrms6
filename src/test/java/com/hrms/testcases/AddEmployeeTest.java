@@ -1,36 +1,34 @@
 package com.hrms.testcases;
 
+import org.testng.annotations.Test;
+
+
+import org.testng.Assert;
+
 import org.openqa.selenium.By;
 
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
-import org.testng.annotations.Test;
+
 import org.testng.asserts.SoftAssert;
 
 import com.hrms.utils.CommonMethods;
 import com.hrms.utils.ConfigsReader;
+import com.hrms.utils.Constants;
 import com.hrms.utils.ExcelUtility;
 
 public class AddEmployeeTest extends CommonMethods {
 	
-	@BeforeMethod
-	public void openBrowser() {
-		setUp();
+
+//@Test(dataProvider="getData",groups="smoke")
+	@Test(dataProvider = "userDataFromExcel" ,groups="regression")
+	public void addEmployee(String firstname,String lastname, String username,String password) {
+		test.info("log in to the hrms website");
 		login.login(ConfigsReader.getProperty("username"), ConfigsReader.getProperty("password"));
 		dashboard.navigateToAddEmployee();
-
-	}
-
-	@AfterMethod
-	public void closeBrowser() {
-		tearDown();
-
-	}
-
-	//@Test(dataProvider="getData",groups="smoke")
-	@Test(dataProvider = "userDataFromExcel")
-	public void addEmployee(String firstname,String lastname, String username,String password) {
+		
+		test.info("inserting employee details");
 		
 	sendText(addEmp.firstName, firstname);
 	sendText(addEmp.lastName, lastname);
@@ -45,7 +43,7 @@ public class AddEmployeeTest extends CommonMethods {
 	System.out.println(actualtext);
 	String expectedtext= firstname+" "+lastname;
        SoftAssert soft= new SoftAssert();
-	soft.assertEquals(actualtext,expectedtext,"Texts do not match");
+	Assert.assertEquals(actualtext,expectedtext,"Texts do not match");
 	//TakesScreenshot(firstname+" "+lastname);
 	soft.assertAll();
 	}
@@ -59,8 +57,7 @@ public class AddEmployeeTest extends CommonMethods {
 //	}
 	@DataProvider(name="userDataFromExcel")
 	public Object[][] getData2(){
-		return ExcelUtility.excelIntoArray(System.getProperty("user.dir") +"/testdata/Test1.xlsx","Sheet1");
+		return ExcelUtility.excelIntoArray(Constants.TESTDATA_FILEPATH,"AddEmployee");
 		
 	}
 }
-	

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" verbose="0" name="Failed suite [ smoke Suite]">
+  <listeners>
+    <listener class-name="com.hrms.testbase.Listener"/>
+  </listeners>
+  <test thread-count="5" verbose="0" name=" smoke Test(failed)">
+    <groups>
+      <run>
+        <include name="smoke"/>
+      </run>
+    </groups>
+    <classes>
+      <class name="com.hrms.testcases.LoginTest">
+        <methods>
+          <include name="generateReport"/>
+          <include name="writeReport"/>
+          <include name="tearDown"/>
+          <include name="validAdminLogin"/>
+          <include name="setUp"/>
+        </methods>
+      </class> <!-- com.hrms.testcases.LoginTest -->
+    </classes>
+  </test> <!--  smoke Test(failed) -->
+</suite> <!-- Failed suite [ smoke Suite] -->

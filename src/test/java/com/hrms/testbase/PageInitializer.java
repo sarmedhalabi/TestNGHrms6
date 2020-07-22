@@ -4,6 +4,7 @@ import com.hrms.pages.AddEmployee;
 import com.hrms.pages.DashboardPageElements;
 import com.hrms.pages.LoginPageElements;
 import com.hrms.pages.PersonalDetailsPageElements;
+import com.hrms.pages.ReportPage;
 import com.hrms.pages.sauceDemoPage;
 
 public class PageInitializer extends BaseClass {
@@ -15,6 +16,7 @@ public class PageInitializer extends BaseClass {
 		public static PersonalDetailsPageElements pdetails;
 		public static AddEmployee addemployee;
 		public static sauceDemoPage saucelogin;
+		public static ReportPage reportPage;
 		
 		public static void initialize() {
 			
@@ -24,6 +26,7 @@ public class PageInitializer extends BaseClass {
 			pdetails=new PersonalDetailsPageElements();
 			addemployee=new AddEmployee();
 			saucelogin=new sauceDemoPage();
+			reportPage = new ReportPage();
 		}
 
 }

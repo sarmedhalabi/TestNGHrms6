@@ -4,11 +4,13 @@
 /Users/sarmedhalabi/eclipse-workspace/HrmsFramework/src/test/java/com/hrms/pages/PersonalDetailsPageElements.java
 /Users/sarmedhalabi/eclipse-workspace/HrmsFramework/src/test/java/com/hrms/testbase/PageInitializer.java
 /Users/sarmedhalabi/eclipse-workspace/HrmsFramework/src/test/java/com/hrms/testcases/LoginTest.java
-/Users/sarmedhalabi/eclipse-workspace/HrmsFramework/src/test/java/com/hrms/testcases/AddEmployeeTask.java
+/Users/sarmedhalabi/eclipse-workspace/HrmsFramework/src/test/java/com/hrms/testcases/DefineReport.java
 /Users/sarmedhalabi/eclipse-workspace/HrmsFramework/src/test/java/com/hrms/utils/ExcelUtility.java
 /Users/sarmedhalabi/eclipse-workspace/HrmsFramework/src/test/java/com/hrms/utils/Constants.java
 /Users/sarmedhalabi/eclipse-workspace/HrmsFramework/src/test/java/com/hrms/pages/DashboardPageElements.java
 /Users/sarmedhalabi/eclipse-workspace/HrmsFramework/src/test/java/com/hrms/testbase/Listener.java
 /Users/sarmedhalabi/eclipse-workspace/HrmsFramework/src/test/java/com/hrms/utils/ConfigsReader.java
+/Users/sarmedhalabi/eclipse-workspace/HrmsFramework/src/test/java/com/hrms/pages/ReportPage.java
 /Users/sarmedhalabi/eclipse-workspace/HrmsFramework/src/test/java/com/hrms/pages/sauceDemoPage.java
+/Users/sarmedhalabi/eclipse-workspace/HrmsFramework/src/test/java/com/hrms/testcases/AddEmployeeTest.java
 /Users/sarmedhalabi/eclipse-workspace/HrmsFramework/src/test/java/com/hrms/pages/LoginPageElements.java

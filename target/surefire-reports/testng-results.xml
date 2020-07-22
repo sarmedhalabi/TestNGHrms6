@@ -1,11 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="0" total="0" passed="0">
+<testng-results skipped="0" failed="0" ignored="8" total="9" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="com.hrms.testcases.LoginTest" duration-ms="14" started-at="2020-05-30T15:09:16 EDT" finished-at="2020-05-30T15:09:16 EDT">
+  <suite name=" smoke Suite" duration-ms="13085" started-at="2020-06-02T20:25:10 EDT" finished-at="2020-06-02T20:25:23 EDT">
     <groups>
+      <group name="smoke">
+        <method signature="LoginTest.validAdminLogin()[pri:0, instance:com.hrms.testcases.LoginTest@7791a895]" name="validAdminLogin" class="com.hrms.testcases.LoginTest"/>
+      </group> <!-- smoke -->
     </groups>
-    <test name="Command line test" duration-ms="14" started-at="2020-05-30T15:09:16 EDT" finished-at="2020-05-30T15:09:16 EDT">
-    </test> <!-- Command line test -->
-  </suite> <!-- com.hrms.testcases.LoginTest -->
+    <test name=" smoke Test" duration-ms="13085" started-at="2020-06-02T20:25:10 EDT" finished-at="2020-06-02T20:25:23 EDT">
+      <class name="com.hrms.testcases.LoginTest">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.hrms.testcases.LoginTest@7791a895]" name="setUp" is-config="true" duration-ms="5858" started-at="2020-06-02T20:25:10 EDT" finished-at="2020-06-02T20:25:16 EDT">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="validAdminLogin()[pri:0, instance:com.hrms.testcases.LoginTest@7791a895]" name="validAdminLogin" duration-ms="5224" started-at="2020-06-02T20:25:16 EDT" finished-at="2020-06-02T20:25:21 EDT">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- validAdminLogin -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.hrms.testcases.LoginTest@7791a895]" name="tearDown" is-config="true" duration-ms="164" started-at="2020-06-02T20:25:22 EDT" finished-at="2020-06-02T20:25:23 EDT">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- com.hrms.testcases.LoginTest -->
+      <class name="com.hrms.testcases.DefineReport">
+        <test-method status="PASS" signature="generateReport()[pri:0, instance:com.hrms.testcases.DefineReport@57536d79]" name="generateReport" is-config="true" duration-ms="195" started-at="2020-06-02T20:25:10 EDT" finished-at="2020-06-02T20:25:10 EDT">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- generateReport -->
+        <test-method status="PASS" signature="writeReport()[pri:0, instance:com.hrms.testcases.DefineReport@57536d79]" name="writeReport" is-config="true" duration-ms="451" started-at="2020-06-02T20:25:23 EDT" finished-at="2020-06-02T20:25:23 EDT">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- writeReport -->
+      </class> <!-- com.hrms.testcases.DefineReport -->
+    </test> <!--  smoke Test -->
+  </suite> <!--  smoke Suite -->
 </testng-results>
